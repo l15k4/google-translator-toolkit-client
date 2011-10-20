@@ -16,7 +16,11 @@ https://github.com/l15k4/document-provider  &  testng
 	 GttClient gttClient = requestFactory.getClient();
 	 gttClient.apiCalls( );
 
-	 Following operations implemented :
+	 // Google Translator Toolkit API doesn't support OAuth ! Only client login is implemented.
+         // So be careful when storing password to your account ! 
+
+IMPLEMENTED :
+
 	 Retrieving translation documents
 	 Retrieving all translation documents
 	 Retrieving trashed translation documents
@@ -38,22 +42,22 @@ https://github.com/l15k4/document-provider  &  testng
 	 Deleting glossaries
 	 Downloading translation documents
 	 Modifying sharing permissions
-     Overview of Sharing (ACLs)
-     Retrieving the ACL feed
-     Adding sharing permissions
-     Updating sharing permissions
-     Removing sharing permissions
+	 Overview of Sharing (ACLs)
+         Retrieving the ACL feed
+         Adding sharing permissions
+         Updating sharing permissions
+         Removing sharing permissions
 
 
-  NOT IMPLEMENTED 
+NOT IMPLEMENTED :
 						    
     - Uploading translation memory
     - Uploading glossary
     - Creating empty translation memory with metadata (no content)
     - Updating translation memory metadata
-	- Updating translation memory content
-	- Updating translation memory metadata and content
-	- Updating glossary metadata
-	- Updating glossary content
+    - Updating translation memory content
+    - Updating translation memory metadata and content
+    - Updating glossary metadata
+    - Updating glossary content
     - Updating glossary metadata and content
 
