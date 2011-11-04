@@ -10,7 +10,7 @@ https://github.com/l15k4/document-provider  &  testng
 
 	 Usage:
 
-	 mvn install -DskipTests
+	 mvn install -Dskip
 
 	 AuthRequestFactory requestFactory = new AuthRequestFactory(clientId, passwd, appName);
 	 GttClient gttClient = requestFactory.getClient();
