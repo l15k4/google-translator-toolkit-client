@@ -2,6 +2,9 @@ package cz.instance.gtt.model;
 
 import com.google.api.client.util.Key;
 
+import cz.instance.gtt.RequestCallback;
+import cz.instance.gtt.utils.PrintUtils;
+
 public class Category {
 
 	public Category() {
@@ -21,4 +24,9 @@ public class Category {
 	@Key("@label")
 	public String label;
 	
+	@Override
+	public String toString()  {
+		String xml = RequestCallback.GTT_DICTIONARY.toStringOf("category", this);
+		return PrintUtils.prettyFormat(xml);
+	}
 }

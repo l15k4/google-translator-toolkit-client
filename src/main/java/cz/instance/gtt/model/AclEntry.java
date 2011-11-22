@@ -2,6 +2,9 @@ package cz.instance.gtt.model;
 
 import com.google.api.client.util.Key;
 
+import cz.instance.gtt.RequestCallback;
+import cz.instance.gtt.utils.PrintUtils;
+
 public class AclEntry extends Entry {
 
 	public AclEntry() {
@@ -21,5 +24,11 @@ public class AclEntry extends Entry {
 	
 	@Key("category")
 	public Category category; 
+	
+	@Override
+	public String toString()  {
+		String xml = RequestCallback.GTT_DICTIONARY.toStringOf("aclEntry", this);
+		return PrintUtils.prettyFormat(xml);
+	}
 	
 }

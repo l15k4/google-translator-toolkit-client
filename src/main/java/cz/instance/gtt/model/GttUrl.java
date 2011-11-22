@@ -3,6 +3,9 @@ package cz.instance.gtt.model;
 import com.google.api.client.googleapis.GoogleUrl;
 import com.google.api.client.util.Key;
 
+import cz.instance.gtt.RequestCallback;
+import cz.instance.gtt.utils.PrintUtils;
+
 public class GttUrl extends GoogleUrl {
 
 	private static final String ROOT_URL = "http://translate.google.com/toolkit/feeds";
@@ -163,5 +166,11 @@ public class GttUrl extends GoogleUrl {
 		if(param == null) {
 			throw new IllegalArgumentException("Url parameter must not be null");
 		}
+	}
+	
+	@Override
+	public String toString()  {
+		String xml = RequestCallback.GTT_DICTIONARY.toStringOf("gttUrl", this);
+		return PrintUtils.prettyFormat(xml);
 	}
 }

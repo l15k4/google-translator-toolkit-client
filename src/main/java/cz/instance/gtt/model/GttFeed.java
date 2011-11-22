@@ -6,6 +6,9 @@ import java.util.List;
 import com.google.api.client.util.Key;
 import com.google.api.client.xml.GenericXml;
 
+import cz.instance.gtt.RequestCallback;
+import cz.instance.gtt.utils.PrintUtils;
+
 public class GttFeed<E> extends GenericXml implements Feed<E>  {
 
 	@Key("title")
@@ -48,5 +51,17 @@ public class GttFeed<E> extends GenericXml implements Feed<E>  {
 		entries.add(e);
 	}
 	
+	public Link getLink(int index) {
+		return links.get(index);
+	}
 	
+	public void addLink(Link link) {
+		links.add(link);
+	}
+	
+	@Override
+	public String toString()  {
+		String xml = RequestCallback.GTT_DICTIONARY.toStringOf("gttFeed", this);
+		return PrintUtils.prettyFormat(xml);
+	}
 }

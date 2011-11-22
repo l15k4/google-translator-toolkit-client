@@ -2,6 +2,9 @@ package cz.instance.gtt.model;
 
 import com.google.api.client.util.Key;
 
+import cz.instance.gtt.RequestCallback;
+import cz.instance.gtt.utils.PrintUtils;
+
 public class Link {
 
 	public Link() {
@@ -19,4 +22,10 @@ public class Link {
 
 	@Key("@href")
 	public String href;
+	
+	@Override
+	public String toString()  {
+		String xml = RequestCallback.GTT_DICTIONARY.toStringOf("link", this);
+		return PrintUtils.prettyFormat(xml);
+	}
 }
