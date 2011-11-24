@@ -84,6 +84,17 @@ public class GttClient {
 	public AclEntry getAclForDocByScope(String docId, String scopeValue) throws IOException {
 		return exe.toEntry(GttUrl.forAclOfDocumentWithScope(docId, scopeValue), HttpMethod.GET, AclEntry.class);
 	}
+	
+	public List<AclEntry> getAclsForDocByRole(String docId, String roleValue) throws IOException {
+		GttFeed<AclEntry> aclFeed = getAclForDoc(docId);
+		List<AclEntry> aclEntries = new ArrayList<AclEntry>();
+		for (AclEntry aclEntry : aclFeed.getFeedEntries()) {
+			if(aclEntry.role != null && aclEntry.role.value.equals(roleValue)) {
+				aclEntries.add(aclEntry);
+			}
+		}
+		return aclEntries;
+	}
 
 	public InputStream getFile(String urlId) throws IOException {
 		GttEntry entry = getDoc(urlId);
